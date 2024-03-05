@@ -40,7 +40,7 @@ fn main() {
         send_event.set(raw_sync::events::EventState::Signaled).unwrap();
 
         // finish after 10,000 iterations
-        if i == 10000 {
+        if i == 50000 {
             break;
         }
 

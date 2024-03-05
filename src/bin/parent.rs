@@ -84,7 +84,7 @@ fn main() {
     let mut last_sleep = std::time::Duration::from_micros(0);
     let mut last_duration = std::time::Duration::from_micros(0);
     let mut overruns = 0;
-    let period = std::time::Duration::from_micros(1_000_000 / 1000 as u64);
+    let period = std::time::Duration::from_micros(1_000_000 / 100 as u64);
 
     println!("Parent ready to send");
 
@@ -105,7 +105,7 @@ fn main() {
         recv_event.wait(raw_sync::Timeout::Infinite).unwrap();
 
         // finish after 10,000 iterations
-        if i == 10000 {
+        if i == 50000 {
             break;
         }
 
