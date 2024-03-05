@@ -21,7 +21,7 @@ fn main() {
     unsafe {
         let ret = libc::sched_setscheduler(
             0,
-            libc::SCHED_FIFO,
+            libc::SCHED_OTHER,
             &libc::sched_param {
                 sched_priority: 85,
             },
@@ -64,7 +64,7 @@ fn main() {
     unsafe {
         let ret = libc::sched_setscheduler(
             child.id() as libc::pid_t,
-            libc::SCHED_FIFO,
+            libc::SCHED_OTHER,
             &libc::sched_param {
                 sched_priority: 80,
             },
