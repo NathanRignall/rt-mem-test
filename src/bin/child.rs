@@ -62,8 +62,7 @@ fn main() {
 
     println!("Goodbye, child! (Write)");
 
-    // write the timestamps to a file
-    let mut writer = csv::Writer::from_path("times-child.csv").unwrap();
+    let mut writer = csv::Writer::from_path("rt-mem-test-times-child.csv").unwrap();
     for (i, timestamp) in times.iter().enumerate() {
         writer
             .serialize((i, timestamp))

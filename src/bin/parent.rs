@@ -128,8 +128,8 @@ fn main() {
         // wait for the child to signal back
         recv_event.wait(raw_sync::Timeout::Infinite).unwrap();
 
-        // finish after 50,000 iterations
-        if i == 50000 {
+        // finish after 10,000 iterations
+        if i == 10000 {
             break;
         }
 
@@ -156,8 +156,11 @@ fn main() {
 
     println!("Goodbye, parent! (Write)");
 
-    // write the timestamps to a CSV file
-    let mut writer = csv::Writer::from_path("times-parent.csv").unwrap();
+    // write the timestamps to a file
+    let mut writer = csv::Writer::from_path("rt-mem-test-times-parent.csv").unwrap();
+    writer
+        .write_record(&["i", "timestamp", "sleep", "duration", "overruns"])
+        .expect("Failed to write to file");
     for (i, (timestamp, sleep, duration, overruns)) in times.iter().enumerate() {
         writer
             .serialize((i, timestamp, sleep, duration, overruns))
