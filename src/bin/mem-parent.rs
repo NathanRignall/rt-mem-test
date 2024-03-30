@@ -48,7 +48,7 @@ fn main() {
         unsafe { raw_sync::events::Event::new(recv_shmem.as_ptr(), true).unwrap() };
 
     // spawn the child process
-    let binary_path = format!("target/release/child");
+    let binary_path = format!("mem-child");
     let mut command = Command::new(binary_path);
 
     // redirect the child's stderr to the parent's stderr
