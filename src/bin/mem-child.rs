@@ -55,7 +55,7 @@ fn main() {
             .unwrap();
 
         // finish after 50,000 iterations
-        if i == 50000 {
+        if i == 10000 {
             break;
         }
     }
